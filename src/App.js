@@ -4,8 +4,9 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import { View, Text } from 'react-native';
 import reducers from './reducers';
-import LoginForm from './components/common/LoginForm';
+import LoginForm from './components/LoginForm';
 import ax from './config/axiosSetup';
+import Router from './Router';
 
 class App extends Component {
 
@@ -33,7 +34,7 @@ class App extends Component {
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
     return (
       <Provider store={store}>
-        <LoginForm/>
+        <Router />
       </Provider>
       );
     } // end of Render

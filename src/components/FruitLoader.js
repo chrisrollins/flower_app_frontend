@@ -10,7 +10,7 @@ const FruitLoader = ({ size, text }) => {
   //https://facebook.github.io/react-native/docs/images.html
   //this means each one needs to use a require statement with a static string literal rather than first generating a string and then requiring.
   //so don't change this!
-  const images = [require('./../../images/loading_banana.gif'), require('./../../images/loading_peach.gif'), require('./../../images/loading_watermelon.gif')];
+  const images = [require('./../images/loading_banana.gif'), require('./../images/loading_peach.gif'), require('./../images/loading_watermelon.gif')];
   
   return (
     <View style={styles.loaderStyle}>
