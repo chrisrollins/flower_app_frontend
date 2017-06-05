@@ -39,7 +39,6 @@ class LoginForm extends Component {
   render() {
     return (
       <View>
-        <Header headerText="Hanagachi" />
         <Card>
           <CardSection>
             <Input
@@ -62,7 +61,7 @@ class LoginForm extends Component {
             <Button
               onPress={this.onButtonPress.bind(this)}
             >
-                BUTTON
+                Login
               </Button>
             </CardSection>
             <CardSection>

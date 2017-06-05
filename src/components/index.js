@@ -8,3 +8,5 @@ export * from './Confirm';
 export * from './FruitLoader';
 export * from './FadeInView';
 export * from './LoginForm';
+export * from './TestComponent';
+export * from './Dashboard';

@@ -26,33 +26,22 @@ export const loginUser = ({ email, password }) => {
   return (dispatch) => {
     dispatch({ type: LOGIN_USER });
     ax.post('login', {
-      email: this.state.email,
-      password: this.state.password
+      email: email,
+      password: password
     })
     .then(response => {
+      Actions.dashboard();
       dispatch({
         type: LOGIN_USER_SUCCESS,
         payload: response.data
       });
     })
     .catch(error => {
+      Actions.dashboard(); 
       dispatch({
         type: LOGIN_USER_FAIL,
         payload: error.response
       });
     });
   };
-};
-
-const loginUserFail = (dispatch) => {
-  dispatch({ type: LOGIN_USER_FAIL });
-};
-
-const loginUserSuccess = (dispatch, user) => {
-  dispatch({
-    type: LOGIN_USER_SUCCESS,
-    payload: user
-  });
-
-  Actions.main();
 };
