@@ -6,7 +6,6 @@ class weatherFuncs {
 	static getWeatherByCity(city) {
 		return ax.get(`weather?city=${city}`);
 	}
-
 	static getWeatherByCoords(lat, lon) {
 		return ax.get(`weather?lat=${~~lat}&lon=${~~lon}`);
 	}
