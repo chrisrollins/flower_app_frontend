@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from './../actions/AuthActions';
 import { Card, Header, CardSection, Input, Button, Spinner, FruitLoader } from './';
+import { Actions } from 'react-native-router-flux';
 
 class LoginForm extends Component {
   onEmailChange(text) {
@@ -15,13 +16,11 @@ class LoginForm extends Component {
 
   onButtonPress() {
     const { email, password } = this.props;
-
     this.props.loginUser({ email, password }); // Action
   }
 
-  checkLogin() {
-    //we will end up removing this function actually but whatever
-    console.log("not implemented");
+  register() {
+    Actions.regPage();
   }
 
   renderButton() {
@@ -69,9 +68,9 @@ class LoginForm extends Component {
             </CardSection>
             <CardSection>
               <Button
-                onPress={this.checkLogin.bind(this)}
+                onPress={this.register.bind(this)}
               >
-                  Check Login
+                  Create Account
                 </Button>
               </CardSection>
             </Card>

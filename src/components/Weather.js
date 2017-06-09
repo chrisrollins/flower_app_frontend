@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View } from 'react-native';
 import { updateWeather } from './../actions/WeatherActions';
+import { kelvinToCelsius, kelvinToFahrenheit } from './../config/util.js';
 
 class Weather extends Component {
 
@@ -15,10 +16,14 @@ class Weather extends Component {
   };
 
   render() {
-    console.log("Weather this.props:", this.props);
+    console.log("Weather this.props: ", this.props);
     let weather = "loading weather...";
-    if(this.props.weather.weather) {
-      weather = this.props.weather.weather[0].main;
+    if(Object.keys(this.props.weather).length > 0) {
+      const parsed = JSON.parse(this.props.weather);
+      const tempF = Math.round(kelvinToFahrenheit(parsed.main.temp));
+      const tempC = Math.round(kelvinToCelsius(parsed.main.temp));
+      console.log(parsed);
+      weather = `Weather: ${parsed.weather[0].main}\nTemperature: ${tempF}º F / ${tempC}º C`;
     }
     return (
       <View>
